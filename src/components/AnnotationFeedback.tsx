@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from "react";
-import { db } from "../lib/firebase";
+import { getFirebaseDb } from "../lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { toast } from "sonner";
 
@@ -40,6 +40,12 @@ export default function AnnotationFeedback({
     setIsSubmitting(true);
 
     try {
+      const db = getFirebaseDb();
+      if (!db) {
+        toast.error("Database not initialized");
+        return;
+      }
+      
       await addDoc(collection(db, "annotationFeedback"), {
         practitionerId,
         practitionerName,

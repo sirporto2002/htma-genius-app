@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { getFirebaseDb } from "../lib/firebase";
 import { useAuth } from "../contexts/AuthContext";
 import { INTERPRETATION_GUARDRAILS_VERSION } from "../lib/interpretationGuardrails";
 import { HEALTH_SCORE_SEMANTICS_VERSION } from "../lib/healthScoreSemantics";
@@ -37,6 +37,12 @@ export default function PractitionerFeedbackInline({
     setIsSubmitting(true);
 
     try {
+      const db = getFirebaseDb();
+      if (!db) {
+        console.warn("Firestore not initialized");
+        return;
+      }
+      
       await addDoc(collection(db, "practitionerFeedback"), {
         analysisId,
         context,
@@ -62,6 +68,12 @@ export default function PractitionerFeedbackInline({
     setIsSubmitting(true);
 
     try {
+      const db = getFirebaseDb();
+      if (!db) {
+        console.warn("Firestore not initialized");
+        return;
+      }
+      
       await addDoc(collection(db, "practitionerFeedback"), {
         analysisId,
         context,
