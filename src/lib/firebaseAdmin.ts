@@ -11,7 +11,7 @@ import * as admin from "firebase-admin";
 const requiredEnvVars = {
   projectId: process.env.FIREBASE_PROJECT_ID,
   clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-  privateKey: process.env.FIREBASE_PRIVATE_KEY,
+  privateKey: process.env.ADMIN_PRIVATE_KEY || process.env.FIREBASE_PRIVATE_KEY,
 };
 
 // Check for missing credentials
@@ -26,7 +26,7 @@ if (missingVars.length > 0) {
     )}`
   );
   console.error(
-    "[Firebase Admin] Please set FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, and FIREBASE_PRIVATE_KEY in your environment variables."
+    "[Firebase Admin] Please set FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, and ADMIN_PRIVATE_KEY in your environment variables."
   );
 }
 

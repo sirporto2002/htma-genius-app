@@ -7,9 +7,25 @@ runConfig:
 
 # Environment variables and secrets.
 env:
-  # Grant access to secrets in Cloud Secret Manager.
-  # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
+  # Gemini API Key for PDF extraction
   - variable: GEMINI_API_KEY
     secret: GEMINI_API_KEY
+    availability:
+      - RUNTIME
+
+  # Firebase Admin SDK Configuration
+  - variable: FIREBASE_PROJECT_ID
+    value: "htma-genius"
+    availability:
+      - RUNTIME
+
+  - variable: FIREBASE_CLIENT_EMAIL
+    value: "firebase-adminsdk-fbsvc@htma-genius.iam.gserviceaccount.com"
+    availability:
+      - RUNTIME
+
+  # Private key stored as secret (Firebase reserves FIREBASE_PRIVATE_KEY prefix)
+  - variable: ADMIN_PRIVATE_KEY
+    secret: ADMIN_PRIVATE_KEY
     availability:
       - RUNTIME
