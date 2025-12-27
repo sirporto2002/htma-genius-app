@@ -13,7 +13,7 @@ env:
     availability:
       - RUNTIME
 
-  # Firebase Admin SDK Configuration
+  # Firebase Admin SDK Configuration (Server-side)
   - variable: FIREBASE_PROJECT_ID
     value: "htma-genius"
     availability:
@@ -28,4 +28,41 @@ env:
   - variable: ADMIN_PRIVATE_KEY
     secret: ADMIN_PRIVATE_KEY
     availability:
+      - RUNTIME
+
+  # Firebase Client SDK Configuration (Browser-side - NEXT_PUBLIC_ prefix)
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyAN-k26xP7PhH7AVhzBRKpqIHA23_wUKHg"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "htma-genius.firebaseapp.com"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "htma-genius"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "htma-genius.firebasestorage.app"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "240444522493"
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:240444522493:web:05b9d979e6885fe9482394"
+    availability:
+      - BUILD
       - RUNTIME
