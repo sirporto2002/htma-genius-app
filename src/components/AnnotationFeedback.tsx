@@ -45,7 +45,7 @@ export default function AnnotationFeedback({
         toast.error("Database not initialized");
         return;
       }
-      
+
       await addDoc(collection(db, "annotationFeedback"), {
         practitionerId,
         practitionerName,

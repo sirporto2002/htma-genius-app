@@ -42,7 +42,7 @@ export default function PractitionerFeedbackInline({
         console.warn("Firestore not initialized");
         return;
       }
-      
+
       await addDoc(collection(db, "practitionerFeedback"), {
         analysisId,
         context,
@@ -73,7 +73,7 @@ export default function PractitionerFeedbackInline({
         console.warn("Firestore not initialized");
         return;
       }
-      
+
       await addDoc(collection(db, "practitionerFeedback"), {
         analysisId,
         context,

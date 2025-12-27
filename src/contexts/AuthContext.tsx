@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const auth = getFirebaseAuth();
-    
+
     // Skip auth listener during SSR/build
     if (!auth) {
       setLoading(false);
